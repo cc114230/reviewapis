@@ -11,7 +11,7 @@ import (
 // is compatible with the kratos package it is being compiled against.
 const _ = errors.SupportPackageIsVersion1
 
-// 为某个枚举值单独设置错误码
+// 为某个枚举单独设置错误码
 func IsNeedLogin(err error) bool {
 	if err == nil {
 		return false
@@ -20,7 +20,7 @@ func IsNeedLogin(err error) bool {
 	return e.Reason == ErrorReason_NEED_LOGIN.String() && e.Code == 401
 }
 
-// 为某个枚举值单独设置错误码
+// 为某个枚举单独设置错误码
 func ErrorNeedLogin(format string, args ...interface{}) *errors.Error {
 	return errors.New(401, ErrorReason_NEED_LOGIN.String(), fmt.Sprintf(format, args...))
 }
